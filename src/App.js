@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import Books from './components/Books';
-
+import Navbar from './components/Navbar';
+import Home from "./pages/Home"
+import { Route, Routes } from "react-router-dom"
 function App() {
   return (
     <>
-      <Books />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/navbar" element={<Navbar />} />
+      </Routes>
+
     </>
   );
 }
