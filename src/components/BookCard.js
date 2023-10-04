@@ -1,26 +1,30 @@
 import React from 'react'
-
-function BookCard({ data, key }) {
+import { useNavigate } from 'react-router'
+function BookCard({ book }) {
+    const navigate = useNavigate();
+    const handleNavigation = (id) => {
+        navigate(`/book/${id}`)
+    }
     return (
-        <>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" key={data?.id}>
-                <a href="#">
-                    <img class="rounded-t-sm" src={data?.image_url} alt="" />
-                </a>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                    <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Read more
-                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </a>
-                </div>
+        <> <div
+            key={book?.id}
+            onClick={() => handleNavigation(book?.id)}
+            className="group justify-center shadow-md flex flex-col  object-contain p-2 mt-4 sm:p-4 w-[130px] sm:w-[206px] h-[210px] border-2 sm:h-[280px] bg-white  ml-5 box rounded-sm cursor-pointer"
+        >
+            <div className="h-[134px] sm:h-[180px]">
+                <img
+                    alt=''
+                    src={book?.image_url}
+                    className="h-full w-full object-fill "
+                />
             </div>
-        </>
+            <div>
+                <h1 className="w-full mt-3 text-blue-300 line-clamp-2 text-sm font-bold truncate">
+                    {book?.title}
+                </h1>
+                <span className='text-black'>{book?.authors}</span>
+            </div>
+        </div></>
     )
 }
 
