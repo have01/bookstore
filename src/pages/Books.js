@@ -8,7 +8,7 @@ function Books() {
     return (
         <>
             {loading ? <Loader /> : <div class="container antialiased bg-gray-100 mx-auto flex flex-col justify-center items-center">
-                <div class="flex  container max-w-5xl mx-auto justify-between flex-wrap">
+                <div class="flex  container sm:max-w-5xl mx-auto justify-evenly sm:justify-between flex-wrap px-4">
                     {data?.map((book) => <BookCard book={book} />)}
                 </div>
             </div>}
