@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import useFetchBooks from '../customhooks/useFetchBooks';
 import BookCard from './BookCard';
 import Loader from './Loader';
