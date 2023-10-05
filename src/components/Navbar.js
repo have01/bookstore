@@ -1,29 +1,45 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import Logo from "../assests/logo.png"
+import { useSelector } from 'react-redux'
+import { ShoppingCart } from '@mui/icons-material'
 
 function Navbar() {
+
     const Links = [{ link: "Home", path: "/" },
     { link: "Books", path: "/books" },
     { link: "Authors", path: "/authors" },
-    { link: "Contact", path: "/contact" },
-    ]
+    { link: "Contact", path: "/contact" }]
+    const items = useSelector((state) => state.cart)
+
     return (
         <>
-            <nav class="bg-white border-gray-200 dark:bg-gray-900">
+            <nav class="bg-white border-gray-200 dark:bg-gray-900 shadow-lg">
                 <div class="w-full flex  mx-auto  bg-slate-700  justify-center items-center">
                     <h1 className='text-lg text-white'>Welcome to BookStore</h1>
                 </div>
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
-                    <a href="https://flowbite.com/" class="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
+                    <Link to="/" class="flex items-center">
+                        <img src={Logo} class="h-10 mr-3" alt="bookstore Logo" />
                         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BookStore</span>
-                    </a>
+                    </Link>
                     <div class="flex items-center md:order-2">
                         <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
                             <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo" />
                         </button>
-
+                        <div as="div" className="relative inline-block text-left">
+                            <Link to="/cart">
+                                <div className="relative">
+                                    <ShoppingCart className="w-6 h-6  text-black" />
+                                    {true > 0 && (
+                                        <div className="absolute bg-purple-600 text-xs w-4 h-4 flex justify-center items-center animate-bounce -top-2 -right-2 rounded-full top- text-white">
+                                            {items?.length}
+                                        </div>
+                                    )}
+                                </div>
+                            </Link>
+                        </div>
                         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
                             <div class="px-4 py-3">
                                 <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>

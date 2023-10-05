@@ -7,12 +7,11 @@ function Books() {
     const { data, loading } = useFetchBooks("https://example-data.draftbit.com/books?_page=2&_limit=100")
     return (
         <>
-            {loading ? <Loader /> : <div class="container mx-auto flex flex-col justify-center items-center">
-                <div class="flex container max-w-5xl mx-auto justify-between flex-wrap">
-                    {data?.map((book, index) => <BookCard book={book} />)}
+            {loading ? <Loader /> : <div class="container antialiased bg-gray-100 mx-auto flex flex-col justify-center items-center">
+                <div class="flex  container max-w-5xl mx-auto justify-between flex-wrap">
+                    {data?.map((book) => <BookCard book={book} />)}
                 </div>
             </div>}
-
 
         </>
     )

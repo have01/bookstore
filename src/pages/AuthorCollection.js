@@ -13,7 +13,8 @@ function AuthorCollection() {
     }
     return (
         <>
-            <div class="flex container max-w-5xl mx-auto  flex-wrap">
+            <div className="container flex justify-center my-2 h-5"><h1 className='text-lg font-bold'>Collection of {authorName}</h1></div>
+            <div class="flex container h-screen max-w-5xl mx-auto  flex-wrap">
                 {filteredBooks?.map((book, index) => <BookCard book={book} />)}
             </div>
         </>

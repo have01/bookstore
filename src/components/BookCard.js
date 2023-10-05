@@ -9,8 +9,7 @@ function BookCard({ book }) {
         <> <div
             key={book?.id}
             onClick={() => handleNavigation(book?.id)}
-            className="group justify-center shadow-md flex flex-col  object-contain p-2 mt-4 sm:p-4 w-[130px] sm:w-[206px] h-[210px] border-2 sm:h-[280px] bg-white  ml-5 box rounded-sm cursor-pointer"
-        >
+            className="group justify-center shadow-md flex flex-col  object-contain p-2 mt-4 sm:p-4 w-[130px] sm:w-[206px] h-[210px] border-2 sm:h-[280px] bg-white  ml-5 box rounded-sm cursor-pointer">
             <div className="h-[134px] sm:h-[180px]">
                 <img
                     alt=''

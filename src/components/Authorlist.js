@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 
 const Authorlist = ({ data }) => {
@@ -17,7 +16,6 @@ const Authorlist = ({ data }) => {
 
     return (
         <>
-
             <section class="antialiased bg-gray-100 text-gray-600 px-4 py-4">
                 <div class="flex flex-col justify-center h-full">
                     <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
@@ -38,7 +36,7 @@ const Authorlist = ({ data }) => {
                                         {uniqueAuthorsArray?.map((name, index) => <tr>
                                             <td class="p-2 whitespace-nowrap">
                                                 <div class="flex items-center">
-                                                    <div class="font-medium text-gray-800" onClick={() => handleAuthorNaviagtion(name)}>{name}</div>
+                                                    <div class="font-medium text-gray-800 cursor-pointer" onClick={() => handleAuthorNaviagtion(name)}>{name}</div>
                                                 </div>
                                             </td>
                                         </tr>)}
