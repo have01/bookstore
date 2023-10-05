@@ -7,7 +7,6 @@ function Bookabout({ data }) {
     const dispatch = useDispatch()
     const items = useSelector((state) => state?.cart)
     const handleAddToCart = (data) => {
-        console.log(data)
         dispatch(cartSliceAction.addItem(data))
     }
     return (

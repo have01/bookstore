@@ -5,19 +5,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ShoppingCart } from '@mui/icons-material'
 import { logout } from '../redux/authSlice';
 function Navbar() {
-    const navigate = useNavigate()
+
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn)
-    const [toggle, setToggle] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
     const Links = [{ link: "Home", path: "/" },
     { link: "Books", path: "/books" },
     { link: "Authors", path: "/authors" },
     { link: "Contact", path: "/contact" }]
     const items = useSelector((state) => state.cart)
-    const handleToggle = () => {
-        setToggle(!toggle)
-    }
+
     const handleLogout = () => {
         dispatch(logout())
     };

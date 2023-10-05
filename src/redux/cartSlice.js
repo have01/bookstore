@@ -5,7 +5,6 @@ export const cartSlice = createSlice({
     initialState: [],
     reducers: {
         addItem: (state, action) => {
-            console.log(action.payload.id)
             const item = state.find((item) => item.id === action.payload.id)
             if (item) {
                 item.quantity += 1
@@ -14,7 +13,6 @@ export const cartSlice = createSlice({
             }
         },
         removeFromCart: (state, action) => {
-            console.log(action.payload.id)
             const index = state.findIndex((item) => item.id === action.payload.id)
             if (index !== -1) {
                 state.splice(index, 1)

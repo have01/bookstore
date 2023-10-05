@@ -3,13 +3,10 @@ import { useNavigate } from 'react-router';
 const Authorlist = ({ data }) => {
     const navigate = useNavigate();
     const uniqueAuthors = new Set();
-    // Iterate through the array and add each author to the Set
     data.forEach(book => {
         uniqueAuthors.add(book.authors);
     });
-    // Convert the Set back to an array if needed
     const uniqueAuthorsArray = Array.from(uniqueAuthors);
-
     const handleAuthorNaviagtion = (name) => {
         navigate(`/book/by/${name}`)
     }
